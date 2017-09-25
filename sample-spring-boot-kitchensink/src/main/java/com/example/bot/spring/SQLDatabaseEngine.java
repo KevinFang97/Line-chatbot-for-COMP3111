@@ -27,7 +27,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			stmt = connection.prepareStatement("SELECT * FROM keytable;");
 			rs = stmt.executeQuery();
 			
-			while (rs.next()) {
+			while (rs.next() && result == null) {
 				String q = rs.getString(0);
 				String a = rs.getString(1);
 				int hit = rs.getInt(2);
