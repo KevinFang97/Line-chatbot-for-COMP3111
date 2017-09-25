@@ -32,8 +32,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				String a = rs.getString(2);
 				int hit = rs.getInt(3);
 				if (text.toLowerCase().contains(q.toLowerCase())) {
-					result = a;
-					hit++;
+					result = a + "\nHit: " + ++hit;
 					connection.prepareStatement("UPDATE keytable SET hit = "+hit+" WHERE keyword = '"+q+"';").executeQuery();
 				}
 			}
